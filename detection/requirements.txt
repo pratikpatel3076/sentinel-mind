@@ -1,0 +1,9 @@
+librosa
+numpy
+opencv-python
+fastapi
+uvicorn
+pymongo
+python-multipart
+scipy
+soundfile
