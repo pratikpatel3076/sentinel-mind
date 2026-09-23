@@ -17,6 +17,8 @@ cd ..
 uvicorn api.main:app --reload --port 8000
 ```
 
+Note: all Python dependencies — including FastAPI, Uvicorn, and PyMongo for the API layer — are declared together in `detection/requirements.txt`.
+
 ## Frontend Setup
 
 ```bash
@@ -37,6 +39,15 @@ python mock-data/seed.py
 2. Select a student from the sidebar
 3. Click **Start Monitoring** to begin 10-second analysis cycles
 4. View live stress scores, trend charts, and alert indicators
+
+## API Endpoints
+
+| Method | Endpoint              | Description                                          |
+| ------ | --------------------- | ---------------------------------------------------- |
+| POST   | `/analyze/{student_id}` | Upload an image frame and audio clip; returns stress index (0–100) with alert flag |
+| GET    | `/students`           | List students sorted by alert status and latest score |
+| GET    | `/history/{student_id}` | Last 20 stress readings for a student                |
+| GET    | `/health`             | Health check                                         |
 
 ## Privacy
 
